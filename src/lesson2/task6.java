@@ -6,7 +6,7 @@ public class task6 {
 //        в котором сумма левой и правой части массива равны. Примеры: checkBalance([2, 2, 2, 1, 2, 2, || 10, 1]) → true,
 //        checkBalance([1, 1, 1, || 2, 1]) → true, граница показана символами ||, эти символы в массив не входят.
 
-//не, я сдаюсь
+
     public static void checkBalance() {
         int[] arr = {1,2,3,3,3};
         int s = arr[0] + arr[1] + arr[2];
