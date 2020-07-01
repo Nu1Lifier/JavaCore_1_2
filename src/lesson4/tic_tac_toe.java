@@ -131,7 +131,7 @@ import java.util.Scanner;
             if (map[y][x] == DOT_EMPTY) return true;
             return false;
         }
-        
+
         // Проверка поля.
         public static boolean isMapFull() {
             for (int i = 0; i < SIZE; i++) {
