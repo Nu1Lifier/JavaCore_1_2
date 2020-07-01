@@ -44,12 +44,18 @@ import java.util.Scanner;
         // В каждой ячейке массива могут находиться символы 'X’, ‘O’, ‘•’,
         // которые означают фишки игроков и пустое поле. Для указания размера поля и количества
         // фишек для победы добавим две константы SIZE и DOTS_TO_WIN.
+<<<<<<< Updated upstream
         public static final String ANSI_RED = "\u001B[31m";
         public static final String ANSI_RESET = "\u001B[0m";
 
         public static char[][] map;
         public static final int SIZE = 3;
         public static final int DOTS_TO_WIN = 3;
+=======
+        public static char[][] map;
+        public static final int SIZE = 4;
+        public static final int DOTS_TO_WIN = 4;
+>>>>>>> Stashed changes
 
         // Ячейки поля. Чтобы не забыть, какой символ за что отвечает, их можно записать в именные константы.
         public static final char DOT_EMPTY = '•';
@@ -124,11 +130,19 @@ import java.util.Scanner;
 
         public static boolean checkWin (char symb) {
             for (int i = 0; i < SIZE; i++)
+<<<<<<< Updated upstream
                 if ((map[i][0] == symb && map[i][1] == symb && map[i][2] == symb) ||
                         (map[0][i] == symb && map[1][i] == symb && map[2][i] == symb))
                     return true;
             if ((map[0][0] == symb && map[1][1] == symb && map[2][2] == symb) ||
                     (map[2][0] == symb && map[1][1] == symb && map[0][2] == symb))
+=======
+                if ((map[i][0] == symb && map[i][1] == symb && map[i][2] == symb && map[i][3] == symb) ||
+                        (map[0][i] == symb && map[1][i] == symb && map[2][i] == symb && map[3][i] == symb))
+                    return true;
+            if ((map[0][0] == symb && map[1][1] == symb && map[2][2] == symb && map[3][3] == symb) ||
+                    (map[2][0] == symb && map[1][1] == symb && map[0][2] == symb && map[0][3] == symb))
+>>>>>>> Stashed changes
                 return true;
             return false;
         }
