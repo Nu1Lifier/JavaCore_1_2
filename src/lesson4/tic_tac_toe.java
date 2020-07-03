@@ -5,13 +5,27 @@ import java.util.Scanner;
 
     public class tic_tac_toe {
 
+        // Игровое поле можно представить в виде символьного двумерного массива размером 3х3.
+        // В каждой ячейке массива могут находиться символы 'X’, ‘O’, ‘•’,
+        // которые означают фишки игроков и пустое поле. Для указания размера поля и количества
+        // фишек для победы добавим две константы SIZE и DOTS_TO_WIN.
+
+        public static char[][] map;
+        public static final int SIZE = 4;
+        public static final int DOTS_TO_WIN = 4;
+
+        // Ячейки поля. Чтобы не забыть, какой символ за что отвечает, их можно записать в именные константы.
+        public static final char DOT_EMPTY = '•';
+        public static final char DOT_X = 'X';
+        public static final char DOT_O = 'O';
+
         // Основной игровой цикл
         public static void main(String[] args) {
             initMap();
             printMap();
             while (true) {
                 humanTurn();
-        //      printMap(); ЛИШНЕЕ
+                //      printMap(); ЛИШНЕЕ
                 if (checkWin(DOT_X)) {
                     System.out.println("Победил человек");
                     printMap();
@@ -37,22 +51,6 @@ import java.util.Scanner;
             }
             System.out.println("Игра закончена");
         }
-
-
-        // Игровое поле можно представить в виде символьного двумерного массива размером 3х3.
-        // В каждой ячейке массива могут находиться символы 'X’, ‘O’, ‘•’,
-        // которые означают фишки игроков и пустое поле. Для указания размера поля и количества
-        // фишек для победы добавим две константы SIZE и DOTS_TO_WIN.
-
-        public static char[][] map;
-        public static final int SIZE = 4;
-        public static final int DOTS_TO_WIN = 4;
-
-
-        // Ячейки поля. Чтобы не забыть, какой символ за что отвечает, их можно записать в именные константы.
-        public static final char DOT_EMPTY = '•';
-        public static final char DOT_X = 'X';
-        public static final char DOT_O = 'O';
 
         // Инициализация поля. При запуске программы необходимо инициализировать поле и заполнить все его ячейки символом, обозначающим пустое поле.
         public static void initMap() {
@@ -112,9 +110,8 @@ import java.util.Scanner;
         // В приведённом ниже варианте производится проверка всех возможных комбинаций с помощью 8 условий,
         // для поля 3х3 такой подход может быть оправдан. Если размер поля или длину выигрышной серии можно будет увеличить,
         // лучше найти другой вариант проверки победы, например, через циклы(для поля 4х4 придется написать уже не 8, а 24 условия).
-
         public static boolean checkWin (char symb) {
-            for (int i = 0; i < SIZE; i++)
+            for (int i = 0; i < DOTS_TO_WIN; i++)
 
                 if ((map[i][0] == symb && map[i][1] == symb && map[i][2] == symb && map[i][3] == symb) ||
                         (map[0][i] == symb && map[1][i] == symb && map[2][i] == symb && map[3][i] == symb))
@@ -127,7 +124,10 @@ import java.util.Scanner;
 
         // Проверка ячеек. Метод isCellValid() проверяет возможность установки фишки в указанную ячейку.
         public static boolean isCellValid(int x, int y) {
-            if (x < 0 || x >= SIZE || y < 0 || y >= SIZE) return false;
+            if (x < 0 || x >= SIZE || y < 0 || y >= SIZE) {
+                System.out.println("Проверьте значения х у");
+                return false;
+            }
             if (map[y][x] == DOT_EMPTY) return true;
             return false;
         }
