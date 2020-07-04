@@ -21,6 +21,10 @@ import java.util.Scanner;
 
         // Основной игровой цикл
         public static void main(String[] args) {
+            playGame();
+        }
+
+        public static void playGame() {
             initMap();
             printMap();
             while (true) {
@@ -117,7 +121,7 @@ import java.util.Scanner;
                         (map[0][i] == symb && map[1][i] == symb && map[2][i] == symb && map[3][i] == symb))
                     return true;
             if ((map[0][0] == symb && map[1][1] == symb && map[2][2] == symb && map[3][3] == symb) ||
-                    (map[2][0] == symb && map[1][1] == symb && map[0][2] == symb && map[0][3] == symb))
+                    (map[3][0] == symb && map[2][1] == symb && map[1][2] == symb && map[0][3] == symb))
                 return true;
             return false;
         }
