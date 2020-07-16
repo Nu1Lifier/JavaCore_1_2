@@ -15,8 +15,7 @@ public class animalsApp {
         horseKarl.jump(0.4);
 
         //1 кот
-        catSalem.run(-2);
-        catSalem.run(50);
+        catSalem.run(200);
         catSalem.run(201);
         catSalem.sail(5);
         catSalem.jump( 2);
@@ -28,6 +27,7 @@ public class animalsApp {
 
         // я так понял, это и есть сборщик мусора? после забега 2го кота, макс дистанция стала прежней (200)
         catSalem.run(201);
+        // upd блин, это же другой кот...
 
 
     }
