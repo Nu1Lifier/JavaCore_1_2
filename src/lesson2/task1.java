@@ -1,5 +1,7 @@
 package lesson2;
 
+import java.util.Arrays;
+
 public class task1 {
 
 
@@ -9,10 +11,11 @@ public class task1 {
 
         for (int i=0; i < arr.length; i++){
             if (arr[i] == 1){
-                System.out.print (arr [i] - 1 + " ");
+                arr[i] = 0;
             } else
-                System.out.print (arr [i] + 1 + " ");
+                arr[i] = 1;
         }
+        System.out.println(Arrays.toString(arr));
 
     }
 

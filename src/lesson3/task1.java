@@ -40,7 +40,7 @@ public class task1 {
                 System.exit(0);
             }
 
-        }
+    }
 
 
 
