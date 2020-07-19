@@ -2,11 +2,9 @@ package lesson7;
 
 public class Cat {
 
-    protected final String name;
-    private int appetite;
+    private final String name;
+    private final int appetite;
     private int satiety;
-
-
 
     public Cat(String name, int appetite, int satiety) {
         this.name = name;
@@ -14,19 +12,23 @@ public class Cat {
         this.satiety = satiety;
     }
 
-
-    public String getName() {
-        return name;
+    public void info(){
+        System.out.println(this);
     }
-
-    public int getAppetite() {
-        return appetite;
+    @Override
+    public String toString() {
+        return "Cat [" +
+                "name='" + name + '\'' +
+                ", appetite=" + appetite +
+                ", satiety=" + satiety +
+                ']';
     }
 
     public void eat(Plate plate) throws InterruptedException {
         doEat(plate);
         info();
         plate.info();
+        System.out.println();
         Thread.sleep(3000);
     }
 
@@ -38,18 +40,5 @@ public class Cat {
             satiety = satiety + plate.getFood();
             plate.decreaseFood(plate.getFood());
         }
-    }
-
-    public void info(){
-        System.out.println(this);
-    }
-
-    @Override
-    public String toString() {
-        return "Cat {" +
-                "name='" + name + '\'' +
-                ", appetite=" + appetite +
-                ", satiety=" + satiety +
-                '}';
     }
 }
