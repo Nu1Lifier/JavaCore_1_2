@@ -11,7 +11,7 @@ public class AppTest {
         cats[3] = new Cat("Pumpik", 5, 0);
         cats[4] = new Cat("Gladiator", 7, 0);
 
-        Plate plate = new Plate(10);
+        Plate plate = new Plate(15);
 //        Plate[] plates = new Plate[3];
 //        plates[0] = new Plate(10);
 //        plates[1] = new Plate(10);

@@ -17,11 +17,7 @@ public class Cat {
     }
     @Override
     public String toString() {
-        return "Cat [" +
-                "name='" + name + '\'' +
-                ", appetite=" + appetite +
-                ", satiety=" + satiety +
-                ']';
+        return "Cat " + name + "\n" + "appetite:" + appetite + "\n" + "satiety: " + satiety;
     }
 
     public void eat(Plate plate) throws InterruptedException {
