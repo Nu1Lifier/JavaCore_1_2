@@ -20,6 +20,4 @@ public class Man extends Team {
             System.out.println("Человек " + getName() + " смог перепрыгнуть препятствие высотой " + wall.getHeight() + " метра");
         else System.out.println("Человек " + getName() + " не смог перепрыгнуть препятствие");
     }
-
-
 }
