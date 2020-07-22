@@ -26,7 +26,6 @@ public class AppTest {
                }
 
                System.out.println(Stage + " этап окончен" + "\n");
-
            }
 
 
