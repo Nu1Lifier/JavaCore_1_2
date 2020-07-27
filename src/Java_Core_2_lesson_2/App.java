@@ -3,17 +3,16 @@ package Java_Core_2_lesson_2;
 public class App {
 
     public static void main(String[] args) {
-        String[][] array = new String[4][4];
+        String[][] array = new String[4][3];
+        array[0][0] = "ewq";
 
         for (int i = 0; i < array.length ; i++) {
             for (int j = 0; j <array[i].length ; j++) {
-                array[i][j] = "пум" + j;
-                System.out.println(array[i][j] + " ");
-
+                array[i][j] = String.valueOf(i + j);
+                System.out.println(array[i][j]);
             }
             System.out.println();
         }
-
 
         try {
             try {

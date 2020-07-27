@@ -29,11 +29,10 @@ public class ArraySize {
         }
 
         Integer[][] intArray = new Integer[arr.length][arr[0].length];
-        int res = 0;
+         int res = 0;
         for (int i = 0; i < arr.length ; i++) {
             for (int j = 0; j < arr[0].length ; j++) {
                 intArray[i][j] = Integer.parseInt(arr[i][j]);
-                i++;
                 res += intArray[i][j];
             }
         }
