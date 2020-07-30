@@ -10,10 +10,11 @@ public class MainPhoneBook {
 
         PhoneBook phoneBook = new PhoneBook();
 
-        phoneBook.add("Bob", 4564587, 0, 0);
-        phoneBook.add("Mike", 12547896, 12365478, 98563214);
-        phoneBook.add("Billy", 12345678, 78953000, 45698521);
-        phoneBook.add("Bob", 8954458, 0,0);
+        phoneBook.add("Bob", 4564587);
+        phoneBook.add("Bob", 8954458);
+        phoneBook.add("Bob", 895213423);
+        phoneBook.add("Mike", 12547896);
+        phoneBook.add("Billy", 12345678);
 
 
         phoneBook.get("Bob");
@@ -28,11 +29,10 @@ class PhoneBook {
         this.phoneBook1 = new HashMap<>();
     }
 
-    void add(String name, int num1, int num2, int num3) {
+    void add(String name, int num1) {
         HashSet<Integer> phoneBook = phoneBook1.getOrDefault(name, new HashSet<>());
         phoneBook.add(num1);
-        phoneBook.add(num2);
-        phoneBook.add(num3);
+
 
         phoneBook1.put(name, phoneBook);
     }

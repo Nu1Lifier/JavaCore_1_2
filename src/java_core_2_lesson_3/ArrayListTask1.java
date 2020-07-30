@@ -34,17 +34,17 @@ public class ArrayListTask1 {
 
         System.out.printf("Вся коллекция имен составляет: %n" + names);
 
+
         Set<String> stringSet = new LinkedHashSet<>(names);
         System.out.printf("%nУникальные имена это:%n " + stringSet);
 
         HashMap<String, Integer> doubleNames = new HashMap<>();
-        Integer doubleName;
+        Integer doubleName = null;
         for (String i : names) {
-
             doubleName = doubleNames.get(i);
             doubleNames.put(i, doubleName == null ? 1 : doubleName + 1);
         }
 
-         System.out.printf("%n" + doubleNames);
+         System.out.printf("%nКоличество имен в списке%n" + doubleNames);
     }
 }
