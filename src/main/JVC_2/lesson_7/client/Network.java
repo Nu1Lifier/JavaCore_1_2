@@ -1,4 +1,4 @@
-package JVC_2.lesson_7.Client;
+package main.JVC_2.lesson_7.client;
 
 import java.io.Closeable;
 import java.io.DataInputStream;

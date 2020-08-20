@@ -1,15 +1,15 @@
-package JVC_2.lesson_7.Server;
+package main.JVC_2.lesson_7.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MyServer {
-    private final int PORT = 8189;
+    private final int PORT = 80;
 
-    private List<ClientHandler> clients;
+    private Map<String, ClientHandler> clients;
     private AuthService authService;
 
     public AuthService getAuthService() {
@@ -20,7 +20,8 @@ public class MyServer {
         try (ServerSocket server = new ServerSocket(PORT)) {
             authService = new BaseAuthService();
             authService.start();
-            clients = new ArrayList<>();
+            clients = new HashMap<>();
+
             while (true) {
                 System.out.println("Сервер ожидает подключения");
                 Socket socket = server.accept();
@@ -29,6 +30,7 @@ public class MyServer {
             }
         } catch (IOException e) {
             System.out.println("Ошибка в работе сервера");
+            e.printStackTrace();
         } finally {
             if (authService != null) {
                 authService.stop();
@@ -37,26 +39,40 @@ public class MyServer {
     }
 
     public synchronized boolean isNickBusy(String nick) {
-        for (ClientHandler o : clients) {
-            if (o.getName().equals(nick)) {
-                return true;
-            }
-        }
-        return false;
+        return clients.containsKey(nick);
     }
 
     public synchronized void broadcastMsg(String msg) {
-        for (ClientHandler o : clients) {
+        for (ClientHandler o : clients.values()) {
             o.sendMsg(msg);
         }
     }
 
+    public synchronized void broadcastMsg(String from, String msg) {
+        broadcastMsg(formatMessage(from, msg));
+    }
+
     public synchronized void unsubscribe(ClientHandler o) {
-        clients.remove(o);
+        clients.remove(o.getName());
+        broadcastClients();
+        broadcastMsg(o.getName() + " вышел из чата");
     }
 
     public synchronized void subscribe(ClientHandler o) {
-        clients.add(o);
+        clients.put(o.getName(), o);
+        broadcastClients();
+        broadcastMsg(o.getName() + " зашел в чат");
+    }
+
+    private String formatMessage(String from, String msg) {
+        return from + ": " + msg;
+    }
+
+    public synchronized void broadcastClients() {
+        StringBuilder builder = new StringBuilder("/clients ");
+        for (String nick : clients.keySet()) {
+            builder.append(nick).append(' ');
+        }
+        broadcastMsg(builder.toString());
     }
 }
-

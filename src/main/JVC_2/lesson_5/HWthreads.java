@@ -1,4 +1,4 @@
-package JVC_2.lesson_5;
+package main.JVC_2.lesson_5;
 
 import java.util.Arrays;
 

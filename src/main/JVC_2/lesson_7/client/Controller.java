@@ -1,10 +1,9 @@
-package JVC_2.lesson_7.Client;
+package main.JVC_2.lesson_7.client;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
 import java.net.URL;

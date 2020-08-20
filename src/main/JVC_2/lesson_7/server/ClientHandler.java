@@ -1,4 +1,4 @@
-package JVC_2.lesson_7.Server;
+package main.JVC_2.lesson_7.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class ClientHandler {
-
     private MyServer myServer;
     private Socket socket;
     private DataInputStream in;
@@ -50,7 +49,6 @@ public class ClientHandler {
                     if (!myServer.isNickBusy(nick)) {
                         sendMsg("/authok " + nick);
                         name = nick;
-                        myServer.broadcastMsg(name + " зашел в чат");
                         myServer.subscribe(this);
                         return;
                     } else {
@@ -70,7 +68,7 @@ public class ClientHandler {
             if (strFromClient.equals("/end")) {
                 return;
             }
-            myServer.broadcastMsg(name + ": " + strFromClient);
+            myServer.broadcastMsg(name, strFromClient);
         }
     }
 
@@ -84,7 +82,7 @@ public class ClientHandler {
 
     public void closeConnection() {
         myServer.unsubscribe(this);
-        myServer.broadcastMsg(name + " вышел из чата");
+
         try {
             in.close();
         } catch (IOException e) {
